@@ -507,7 +507,6 @@ Once you start a raid, use !starting to clear the waiting list.
 
 This channel will be deleted in 30 minutes if no timer is set!""".format(raid.mention, ctx.message.author.mention, raid_details, print_emoji_name(ctx.message.server, config['omw_id']), print_emoji_name(ctx.message.server, config['here_id']), print_emoji_name(ctx.message.server, config['unomw_id']), print_emoji_name(ctx.message.server, config['unhere_id']))
         await Meowth.send_message(raid_channel, content = raidmsg, embed=raid_embed)
-        emoji_help()
         raidchannel_dict[raid_channel] = {
           'trainer_dict' : {},
           'exp' : "No expiration time set!",
@@ -772,7 +771,7 @@ async def soon(ctx):
         countdown_str = "Meowth! Raid will be starting in {}",format(i)
         await Meowth.send_message(ctx.message.channel, countdown_str)
         await asyncio.sleep(300)
-     starting()
+    ctx.invoke(starting)
 """this will trigger a coundown at set intervals and then call out everyone that is waiting"""       
     
 
